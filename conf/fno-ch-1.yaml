@@ -1,0 +1,35 @@
+logs:
+  sw_path: tb
+  log_path: log
+  fig_path: figs
+  ckpt_path: ckpt
+
+monitor:
+  plot_freq: 10
+
+data:
+  train_index: 8000
+  eval_index: [8000, 9000]
+  seed: 400
+  num: 200
+  type: ch # ch, sst
+  embed: mask
+
+fno:
+  modes1: 32
+  modes2: 32
+  width: 32
+
+train:
+  gpu: 0
+  batch_size: 24
+  epochs: 400
+  e_milestone: 120 # 对数LR
+  ms_milestone: [30, 100] # 多级LR
+  lr: 0.005
+  scheduler: e
+  e_scheduler_gamma: 0.98
+  ms_scheduler_gamma: 0.5
+  val_interval: 1
+  val_patience: 20
+  loss: mse
